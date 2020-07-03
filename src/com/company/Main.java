@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;						 
 
 public class Main {
     public static void main(String[] params) {
@@ -39,6 +41,31 @@ public class Main {
         return sb.toString();
     }
 }
+     public static void main(String[] args) {
+		 int[] arr = {23,54,65,76,87,96,105,115,120,130,235,340,350};
+            int search = 130;
+
+            boolean toggle=true;
+            int start = 0;
+            int end = arr.length-1;
+            int i = 0;
+            while(toggle) {
+                int mid = (start+end)/2;
+                if(arr[mid]==search){
+                    System.out.println(mid);
+                    toggle=false;
+                }else{
+                    if(arr[mid]<search) {
+                        start = mid + 1;
+                    } else {
+                        end = mid - 1;
+                    }
+                }
+                System.out.println("Iteration: "+i);
+                i++;
+            }
+        }
+		 
     public static void main(String[] args) throws IOException {
         BufferedReader reader =
                 new BufferedReader(new InputStreamReader(System.in));
