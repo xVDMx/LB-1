@@ -7,7 +7,38 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class Main {
-
+    public static void main(String[] params) {
+        int[] array = new int[] {58, 41, 33, 44, 35, 59, 11, 22, 55, 31, 41, 83, 36, 74, 15, 20};
+        bubbleSort(array);
+        System.out.println(arrayToString(array));
+    }
+    public static void bubbleSort(int[] array) {
+        boolean isSorted = false;
+        while (!isSorted) {
+            isSorted = true;
+            for (int i = 1; i < array.length; i++) {
+                if (array[i - 1] > array[i]) {
+                    int tmp = array[i];
+                    array[i] = array[i - 1];
+                    array[i - 1] = tmp;
+                    isSorted = false;
+                }
+            }
+        }
+    }
+    private static String arrayToString(int[] array) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < array.length; i++) {
+            if (i > 0) {
+                sb.append(", ");
+            }
+            sb.append(array[i]);
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+}
     public static void main(String[] args) throws IOException {
         BufferedReader reader =
                 new BufferedReader(new InputStreamReader(System.in));
